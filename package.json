@@ -4,7 +4,7 @@
   "description": "MongoDB, Hapi, React",
   "main": "server/index.js",
   "scripts": {
-    "build": "webpack",
+    "heroku-postbuild": "webpack --progress",
     "start": "node data/init_db.js && node server/index.js"
   },
   "keywords": [
