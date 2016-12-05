@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var assert = require('assert');
 const Planet = require('../server/models').Planet;
 const mongoUri = process.env.MONGOURI || 'localhost';
-mongoose.connect(mongoUri + '/test');
+mongoose.connect(mongoUri + '/planet-reactor');
 
 data =  [
     {
@@ -13,6 +13,11 @@ data =  [
     {
       "name": "Venus",
       "youtube": "https://www.youtube.com/watch?v=TR-IWhZZDJY",
+      "createdAt": new Date()
+    },
+    {
+      "name": "Earth",
+      "youtube": "https://www.youtube.com/watch?v=856TRQpgKJk",
       "createdAt": new Date()
     }
   ];
@@ -26,3 +31,11 @@ Planet.collection.insertMany(data, function(err,r) {
     assert.equal(data.length, r.insertedCount);
     process.exit();
 });
+
+/*
+Terrestrial planets
+Mercury, Venus, Earth, Mars
+
+Non-Terrestrial planets
+Jupiter, Saturn, Uranus
+*/

@@ -5,7 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "postinstall": "webpack",
-    "start": "node data/init_db.js && node server/index.js"
+    "start": "node data/init_db.js && node server/index.js",
+    "dev":"webpack &&  node server/index.js",
+    "initData": "node data/init_db.js"
   },
   "keywords": [
     "mongodb",

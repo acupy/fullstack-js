@@ -22,7 +22,7 @@ const options = {
   }
 };
 
-mongoose.connect(mongoUri, options);
+mongoose.connect(mongoUri + "/planet-reactor", options);
 
 const db = mongoose.connection;
 
