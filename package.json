@@ -4,7 +4,8 @@
   "description": "MongoDB, Hapi, React",
   "main": "server/index.js",
   "scripts": {
-    "start": "node data/init_db.js && webpack && node server/index.js"
+    "build": "webpack",
+    "start": "node data/init_db.js && node server/index.js"
   },
   "keywords": [
     "mongodb",
