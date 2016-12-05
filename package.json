@@ -1,23 +1,32 @@
 {
-  "name": "url-shortener",
-  "version": "1.0.0",
-  "description": "A simple url shortener with hapi.js",
-  "main": "shortener.js",
+  "name": "planet-reactor",
+  "version": "0.0.1",
+  "description": "MongoDB, Hapi, React",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node shortener.js"
+    "start": "node data/init_db.js && webpack && node server/index.js"
   },
   "keywords": [
-    "url",
-    "shortener",
-    "app",
-    "hapi"
+    "mongodb",
+    "hapi",
+    "react"
   ],
-  "author": "codetuts",
-  "license": "ISC",
+  "author": "Adam Czuprak",
+  "license": "MIT",
   "dependencies": {
+    "axios": "^0.15.3",
     "hapi": "^14.1.0",
     "inert": "^4.0.1",
-    "joi": "^9.0.4",
-    "mongoose": "^4.5.8"
+    "mongoose": "^4.5.8",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^2.1.0-beta.20"
   }
 }

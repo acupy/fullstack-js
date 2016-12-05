@@ -1,7 +1,8 @@
 const Hapi     = require('hapi');
-const server   = new Hapi.Server();
 const routes   = require('./routes');
 const mongoose = require('mongoose');
+
+const server   = new Hapi.Server();
 const mongoUri = process.env.MONGOURI || 'localhost';
 
 /* MONGOOSE AND MONGOLAB
@@ -34,13 +35,14 @@ const db = mongoose.connection;
  =======================================================================*/
 
 server.connection({
-  port: process.env.PORT,
-  routes: { cors: true }
+  port: process.env.PORT || 3001,
+  routes: { cors: false }
 });
 
 server.register(require('inert'), (err) => {
   db.on('error', console.error.bind(console, 'connection error:'))
     .once('open', () => {
+
       server.route(routes);
 
       server.start(err => {
