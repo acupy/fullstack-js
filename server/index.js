@@ -1,8 +1,17 @@
 const Hapi     = require('hapi');
+const Path = require('path');
 const routes   = require('./routes');
 const mongoose = require('mongoose');
 
-const server   = new Hapi.Server();
+const server   = new Hapi.Server({
+    connections: {
+        routes: {
+            files: {
+                relativeTo: Path.join(__dirname, '..')
+            }
+        }
+    }
+});
 const mongoUri = process.env.MONGOURI || 'localhost';
 
 /* MONGOOSE AND MONGOLAB

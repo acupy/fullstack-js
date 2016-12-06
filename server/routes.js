@@ -7,7 +7,7 @@ const Planet = require('./models').Planet;
 module.exports = [
   {
     method: 'GET',
-    path:'/planets',
+    path:'/api/planets',
     handler(request, reply) {
       Planet.find({}, (err, result) => {
         if (err) { return reply(err); }
@@ -18,16 +18,55 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/',
+    path:'/api/planet/{planetName}',
     handler(request, reply) {
-      reply.file('app/index.html');
+      Planet.find({name: request.params.planetName}, (err, result) => {
+        if (err) { return reply(err); }
+        else if (result) { reply(result); }
+        else {reply('SORRY'); }
+      });
     }
   },
   {
     method: 'GET',
-    path: '/bin/{file}',
+    path: '/',
     handler(request, reply) {
-      reply.file('bin/' + request.params.file);
+      reply.file('./app/index.html');
+    }
+  },
+  {
+    method: 'GET',
+    path: '/planet/{planetName}',
+    handler(request, reply) {
+      reply.file('./app/index2.html');
+      //reply('Hello ' + encodeURIComponent(request.params.planetName) + '!');
+    }
+  },
+  {
+    method: 'GET',
+    path: '/bin/{file*}',
+    handler: {
+        directory: {
+          path: 'bin/'
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/img/{file*}',
+    handler: {
+        directory: {
+          path: 'app/img/'
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/css/{file*}',
+    handler: {
+        directory: {
+          path: 'app/css/'
+      }
     }
   }
 ];

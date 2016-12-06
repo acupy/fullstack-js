@@ -7,17 +7,42 @@ mongoose.connect(mongoUri + '/planet-reactor');
 data =  [
     {
       "name": "Mercury",
-      "youtube": "https://www.youtube.com/watch?v=6KY-oB2i9lo",
+      "youtube": "https://www.youtube.com/embed/6KY-oB2i9lo",
       "createdAt": new Date()
     },
     {
       "name": "Venus",
-      "youtube": "https://www.youtube.com/watch?v=TR-IWhZZDJY",
+      "youtube": "https://www.youtube.com/embed/TR-IWhZZDJY",
       "createdAt": new Date()
     },
     {
       "name": "Earth",
-      "youtube": "https://www.youtube.com/watch?v=856TRQpgKJk",
+      "youtube": "https://www.youtube.com/embed/856TRQpgKJk",
+      "createdAt": new Date()
+    },
+    {
+      "name": "Mars",
+      "youtube": "https://www.youtube.com/embed/NHcpKl8loTE",
+      "createdAt": new Date()
+    },
+    {
+      "name": "Jupiter",
+      "youtube": "https://www.youtube.com/embed/s56pxa9lpvo",
+      "createdAt": new Date()
+    },
+    {
+      "name": "Saturn",
+      "youtube": "https://www.youtube.com/embed/iy-F09FibuE",
+      "createdAt": new Date()
+    },
+    {
+      "name": "Uranus",
+      "youtube": "https://www.youtube.com/embed/9pFs5PmIsLg",
+      "createdAt": new Date()
+    },
+    {
+      "name": "Neptune",
+      "youtube": "https://www.youtube.com/embed/7wm8Uinm5OM",
       "createdAt": new Date()
     }
   ];
