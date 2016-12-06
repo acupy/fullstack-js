@@ -4,8 +4,8 @@ const Youtube = React.createClass({
   render: function(){
     return (
       <iframe
-        width={this.props.width || 420}
-        height={this.props.height || 315}
+        width={this.props.width || 300}
+        height={this.props.height || 300}
         src={this.props.url}>
       </iframe>
     );

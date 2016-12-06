@@ -27,7 +27,7 @@ const List = React.createClass({
   render: function(){
     var listItems = this.state.planets.map((item, index) => {
       return (
-          <Col xs={6} md={4} key={index}>
+          <Col xs={6} md={3} key={index}>
             <Thumbnail src={"img/" + item.name.toLowerCase() + ".jpg"}>
               <h3><a href={"planet/"+item.name}>{item.name}</a></h3>
             </Thumbnail>
