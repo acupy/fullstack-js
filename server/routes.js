@@ -38,7 +38,7 @@ module.exports = [
     method: 'GET',
     path: '/planet/{planetName}',
     handler(request, reply) {
-      reply.file('./app/index2.html');
+      reply.file('./app/index.html');
     },
   },
   {
@@ -46,7 +46,9 @@ module.exports = [
     path: '/bin/{file*}',
     handler: {
       directory: {
-        path: 'bin/',
+        path: ['bin/'],
+        listing: false,
+        index: ['./app/index.html'],
       },
     },
   },
