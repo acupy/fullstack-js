@@ -1,16 +1,16 @@
-const Hapi     = require('hapi');
+const Hapi = require('hapi');
 const Path = require('path');
-const routes   = require('./routes');
+const routes = require('./routes');
 const mongoose = require('mongoose');
 
-const server   = new Hapi.Server({
-    connections: {
-        routes: {
-            files: {
-                relativeTo: Path.join(__dirname, '..')
-            }
-        }
-    }
+const server = new Hapi.Server({
+  connections: {
+    routes: {
+      files: {
+        relativeTo: Path.join(__dirname, '..'),
+      },
+    },
+  },
 });
 const mongoUri = process.env.MONGOURI || 'localhost';
 
@@ -24,14 +24,14 @@ const mongoUri = process.env.MONGOURI || 'localhost';
 
 const options = {
   server: {
-    socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 }
+    socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 },
   },
   replset: {
-    socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 }
-  }
+    socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 },
+  },
 };
 
-mongoose.connect(mongoUri + "/planet-reactor", options);
+mongoose.connect(`${mongoUri}/planet-reactor`, options);
 
 const db = mongoose.connection;
 
@@ -45,18 +45,15 @@ const db = mongoose.connection;
 
 server.connection({
   port: process.env.PORT || 3001,
-  routes: { cors: false }
+  routes: { cors: false },
 });
 
-server.register(require('inert'), (err) => {
+server.register(require('inert'), (regErr) => {
   db.on('error', console.error.bind(console, 'connection error:'))
     .once('open', () => {
-
       server.route(routes);
-
-      server.start(err => {
-        if (err) throw err;
-
+      server.start((startErr) => {
+        if (startErr) throw startErr;
         console.log(`Server running at port ${server.info.port}`);
       });
     });

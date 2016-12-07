@@ -1,5 +1,5 @@
-const mongoose   = require('mongoose');
-const Schema     = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 /************
 :: SCHEMAS ::
@@ -8,7 +8,7 @@ const Schema     = mongoose.Schema;
 const planetSchema = new Schema({
   name: String,
   youtube: String,
-  createdAt: Date
+  createdAt: Date,
 });
 
 const Planet = mongoose.model('Planet', planetSchema);
