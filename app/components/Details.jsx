@@ -4,31 +4,30 @@ import {
   Grid, Row, Col,
 } from 'react-bootstrap';
 
-import Youtube from './Youtube.js';
+import Youtube from './Youtube.jsx';
 
-const Details = React.createClass({
-  getInitialState: function(){
-    return {
-      name: "",
-      youtube: ""
-    }
-  },
-  componentDidMount: function(){
-    axios.get('/api/planet/' + this.props.params.planetName, {})
-    .then(resp => {
+class Details extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      youtube: '',
+    };
+  }
+  componentDidMount() {
+    axios.get(`/api/planet/${this.props.params.planetName}`, {})
+    .then((resp) => {
       this.setState({
         name: resp.data[0].name,
-        youtube: resp.data[0].youtube
+        youtube: resp.data[0].youtube,
       });
     })
-    .catch(function (error) {
+    .catch((error) => {
       // Handle server or validation errors
       console.log(error);
     });
-
-  },
-  render: function(){
-    console.log(this.props.params);
+  }
+  render() {
     return (
       <Grid>
         <Row>
@@ -38,14 +37,12 @@ const Details = React.createClass({
         </Row>
         <Row>
           <Col xs={3} md={3}>
-            <Youtube url={this.state.youtube}/>
+            <Youtube url={this.state.youtube} />
           </Col>
-          <Col xs={9} md={9}>
-
-          </Col>
+          <Col xs={9} md={9} />
         </Row>
       </Grid>
     );
   }
-});
+}
 export default Details;

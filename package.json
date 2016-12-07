@@ -5,9 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "postinstall": "webpack",
-    "start": "node data/init_db.js && node server/index.js",
+    "start": "node tools/init_db.js && node server/index.js",
     "dev": "webpack &&  node server/index.js",
-    "initData": "node data/init_db.js"
+    "initDB": "node tools/init_db.js",
+    "lint": "eslint serever app"
   },
   "keywords": [
     "mongodb",
@@ -31,5 +32,13 @@
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0",
     "webpack": "^2.1.0-beta.20"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.11.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "2.0.1",
+    "eslint-plugin-react": "^6.8.0"
   }
 }

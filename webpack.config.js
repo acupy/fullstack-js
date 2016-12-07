@@ -1,12 +1,12 @@
 module.exports = {
-    entry: './app/index.js',
-    output: {
-             path: './bin',
-             filename: 'index.js'
-    },
-    module: {
-      loaders: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
-     ]
-   }
+  entry: './app/index.jsx',
+  output: {
+    path: './bin',
+    filename: 'index.js',
+  },
+  module: {
+    loaders: [
+      { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' },
+    ],
+  },
 };
