@@ -1,2 +1,2 @@
 ## Planet Reactor
-DEMO: (Planet Reactor)[https://planet-reactor.herokuapp.com/]
+DEMO: [Planet Reactor](https://planet-reactor.herokuapp.com/)
