@@ -1,3 +1,8 @@
 .caption{
   text-align: center;
 }
+.form-control{
+  margin-bottom: 10px !important;
+  height: 40px !important;
+  font-size: 25px !important;
+}

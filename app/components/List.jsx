@@ -5,9 +5,12 @@ import {
   Grid, Row, Col,
 } from 'react-bootstrap';
 
+import SearchBar from './SearchBar.jsx';
+
 class List extends React.Component {
   constructor(props) {
     super(props);
+    this.allPlanets = [];
     this.state = {
       planets: [],
     };
@@ -15,6 +18,7 @@ class List extends React.Component {
   componentDidMount() {
     axios.get('/api/planets', {})
     .then((resp) => {
+      this.allPlanets = resp.data;
       this.setState({
         planets: resp.data,
       });
@@ -22,6 +26,18 @@ class List extends React.Component {
     .catch((error) => {
       // Handle server or validation errors
       console.log(error);
+    });
+  }
+  handleSearch(filterText) {
+    let filteredPlanets;
+    if (filterText) {
+      filteredPlanets = this.allPlanets.filter((planet) => {
+        return planet.name.toLowerCase().includes(filterText.toLowerCase());
+      });
+    }
+
+    this.setState({
+      planets: filterText ? filteredPlanets : this.allPlanets,
     });
   }
   render() {
@@ -35,7 +51,16 @@ class List extends React.Component {
       );
     });
 
-    return (<Grid><Row>{listItems}</Row></Grid>);
+    return (
+      <div>
+        <SearchBar
+          searchHandler={this.handleSearch.bind(this)}
+        />
+        <Grid>
+          <Row>{listItems}</Row>
+        </Grid>
+      </div>
+    );
   }
 }
 

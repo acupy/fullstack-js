@@ -6,9 +6,6 @@ import App from './components/App.jsx';
 import List from './components/List.jsx';
 import Details from './components/Details.jsx';
 
-//      <Route path="about" component={About}/>
-//      <Route path="*" component={NoMatch}/>
-
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
